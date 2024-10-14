@@ -4,9 +4,11 @@ import Card from "./Card";
 
 const Banner = () => {
     return (
-        <div className="bg-slate-400 text-white p-10 h-screen fixed w-full flex items-center">
+        <div className="bg-slate-400 text-white p-10 h-screen fixed w-full flex flex-col ">
             <Header />
-            <Card />
+            <div className="flex-grow flex items-center justify-cenetr">
+                <Card />
+            </div>
             <p className="text-xl">Este es el banner</p>
         </div>
     );

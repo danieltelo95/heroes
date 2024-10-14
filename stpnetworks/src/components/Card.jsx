@@ -35,10 +35,16 @@ const Card = () => {
     const dislikePercentage = totalVotes === 0 ? 0 : (dislikes/totalVotes) * 100; 
 
     return(
-        <div>
-            <div>
-                <button onClick={handleLike}> Like</button>
-                <button onClick={handleDislike}> Dislike </button>
+        <div className="bg-white p-8 rounded-lg shadow-lg text-black max-w-sm w-full">
+            <div className="flex justify-center mb-4">
+                <button 
+                    className="bg-green-500 text-white py-2 px-4"
+                    onClick={handleLike}> Like
+                </button>
+                <button 
+                    className="bg-green-500 text-white py-2 px-4"
+                    onClick={handleDislike}> Dislike 
+                </button>
             </div>
             <div className="text-xl">
                 <p>Votos totales: {totalVotes}</p>
