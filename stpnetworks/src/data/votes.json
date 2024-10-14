@@ -1,5 +1,27 @@
-{
-    "likes": 0,
-    "dislikes": 0
-}
-  
+[
+    {
+        "name": "Ironman",
+        "likes": 0,
+        "dislikes": 0
+    },
+    {
+        "name": "Superman",
+        "likes": 0,
+        "dislikes": 0
+    },
+    {
+        "name": "Thor",
+        "likes": 0,
+        "dislikes": 0
+    },
+    {
+        "name": "Batman",
+        "likes": 0,
+        "dislikes": 0
+    },
+    {
+        "name": "Spiderman",
+        "likes": 0,
+        "dislikes": 0
+    }
+]

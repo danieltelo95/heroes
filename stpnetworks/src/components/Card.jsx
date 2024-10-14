@@ -1,22 +1,7 @@
-import React, {useState, useEffect} from "react";
-import data from '../data/votes.json'
+import React from "react";
+import data from '../data/votes.json';
 
-const Card = () => {
-
-    const [likes, setLikes] = useState(0);
-    const [dislikes, setDislikes] = useState(0);
-
-    useEffect(() => {
-
-            setLikes(data.likes);
-            setDislikes(data.dislikes);
-
-            const storedLikes = localStorage.getItem("likes");
-            const storedDislikes = localStorage.getItem("dislikes");
-
-            if(storedLikes) setLikes(JSON.parse(storedLikes));
-            if(storedDislikes) setDislikes(JSON.parse(storedDislikes))
-    }, []);
+const Card = ({name, likes, dislikes, setLikes, setDislikes}) => {
 
     const handleLike = () => {
         const newLikes = likes + 1;
@@ -35,26 +20,30 @@ const Card = () => {
     const dislikePercentage = totalVotes === 0 ? 0 : (dislikes/totalVotes) * 100; 
 
     return(
-        <div className="bg-white p-8 rounded-lg shadow-lg text-black max-w-sm w-full">
-            <div className="flex justify-center mb-4">
+        <div className="bg-black bg-opacity-30 backdrop-blur-lg shadow-lg text-black max-w-lg w-full min-h-[200px] md:min-h-[300px] lg:min-h-[400px] flex flex-col">
+            <div className="p-4 text-white text-left ml-4 mt-4 text-sm flex-grow">
+                <p>Dinos tu opinion sobre</p>
+                <p className="font-bold text-4xl">{name}?</p>
+                <p className="mt-4 text-sm mt-12">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            <div className="mt-auto p-4">
+                <p className="font-bold text-white text-left text-lg mb-4">¿Cuál es tu voto?</p>
+            </div>
+            <div className="flex">
                 <button 
-                    className="bg-green-500 text-white py-2 px-4"
+                    className="bg-green-500 text-white py-4 w-full "
                     onClick={handleLike}> Like
                 </button>
                 <button 
-                    className="bg-green-500 text-white py-2 px-4"
+                    className="bg-orange-500 text-white w-full "
                     onClick={handleDislike}> Dislike 
                 </button>
             </div>
-            <div className="text-xl">
-                <p>Votos totales: {totalVotes}</p>
-                <p>% Likes: {likePercentage}</p>
-                <p>% Dislikes: {dislikePercentage}</p>
-            </div>
-
-            {totalVotes > 0 && (
-                <p>Tu voto ha sido registrado</p>
-            )}
         </div>
     )
 
