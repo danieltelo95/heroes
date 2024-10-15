@@ -1,4 +1,36 @@
-// src/components/HeroGrid.js
+/**
+ * HeroGrid Component
+ * 
+ * Este componente muestra una cuadrícula de superhéroes en un diseño 
+ * responsivo. Cada superhéroe se representa con una imagen y su nombre 
+ * sobre la imagen. El diseño se adapta a diferentes tamaños de pantalla 
+ * utilizando clases de Tailwind CSS.
+ * 
+ * Estructura:
+ * - Cuadrícula: Utiliza `grid` para crear una cuadrícula de superhéroes.
+ * - Imagen: Cada superhéroe tiene una imagen que ocupa todo el ancho de la columna.
+ * - Nombre: El nombre del superhéroe se muestra en la parte inferior de la imagen 
+ *   en un cuadro de texto centrado.
+ * 
+ * Responsividad:
+ * - En pantallas pequeñas, se muestra una columna.
+ * - En pantallas medianas y grandes, se muestran dos columnas.
+ * 
+ * Uso:
+ * ```jsx
+ * import HeroGrid from './HeroGrid';
+ * 
+ * const App = () => {
+ *   return (
+ *     <div>
+ *       <HeroGrid />
+ *     </div>
+ *   );
+ * };
+ * 
+ * export default App;
+ * ```
+ */
 
 import React from "react";
 import batman from "../assets/images/batman.jpg"; // Importa las imágenes de los superhéroes
@@ -17,7 +49,7 @@ const HeroGrid = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4 mt-16 mb-8 ml-8 mr-8 px-16 ">
             {superheroes.map((hero, index) => (
-                <div key={index} className="relative flex flex-col bg-black bg-opacity-30 overflow-hidden">
+                <div key={index} className="relative flex flex-col bg-black bg-opacity-30 overflow-hidden rounded-lg shadow-lg">
                     <img 
                         src={hero.image} 
                         alt={hero.name} 
