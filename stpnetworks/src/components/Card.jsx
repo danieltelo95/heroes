@@ -1,5 +1,6 @@
 import React from "react";
-import data from '../data/votes.json';
+import { HandThumbUpIcon } from "@heroicons/react/24/solid";
+import { HandThumbDownIcon } from "@heroicons/react/24/solid";
 
 const Card = ({name, likes, dislikes, setLikes, setDislikes}) => {
 
@@ -20,8 +21,8 @@ const Card = ({name, likes, dislikes, setLikes, setDislikes}) => {
     const dislikePercentage = totalVotes === 0 ? 0 : (dislikes/totalVotes) * 100; 
 
     return(
-        <div className="bg-black bg-opacity-30 backdrop-blur-lg shadow-lg text-black max-w-lg w-full min-h-[200px] md:min-h-[300px] lg:min-h-[400px] flex flex-col">
-            <div className="p-4 text-white text-left ml-4 mt-4 text-sm flex-grow">
+        <div className="bg-black bg-opacity-30 backdrop-blur-lg shadow-lg max-w-lg w-full min-h-[200px] md:min-h-[300px] lg:min-h-[400px] flex flex-col">
+            <div className="p-4 text-white font-montserrat text-left ml-4 mt-4 text-sm flex-grow">
                 <p>Dinos tu opinion sobre</p>
                 <p className="font-bold text-4xl">{name}?</p>
                 <p className="mt-4 text-sm mt-12">
@@ -36,12 +37,14 @@ const Card = ({name, likes, dislikes, setLikes, setDislikes}) => {
             </div>
             <div className="flex">
                 <button 
-                    className="bg-green-500 text-white py-4 w-full "
-                    onClick={handleLike}> Like
+                    className="bg-green-500 text-white items-center w-full flex justify-center"
+                    onClick={handleLike}> 
+                    <HandThumbUpIcon className="h-12 w-8"/>
                 </button>
                 <button 
-                    className="bg-orange-500 text-white w-full "
-                    onClick={handleDislike}> Dislike 
+                    className="bg-orange-500 text-white items-center w-full flex justify-center"
+                    onClick={handleDislike}>  
+                    <HandThumbDownIcon className="h-12 w-8"/>
                 </button>
             </div>
         </div>

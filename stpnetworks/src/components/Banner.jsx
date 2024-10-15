@@ -3,6 +3,8 @@ import Header from "./Header";
 import Card from "./Card";
 import data from '../data/votes.json';
 import ironman from '../assets/images/iron_man.jpg';
+import { HandThumbUpIcon } from "@heroicons/react/24/solid";
+import { HandThumbDownIcon } from "@heroicons/react/24/solid";
 
 const Banner = () => {
     const [likes, setLikes] = useState(0);
@@ -43,16 +45,18 @@ const Banner = () => {
             <div className="absolute left-0 w-full flex items-center justify-center mt-8">
                 <div className="w-full bg-orange-500 h-10 overflow-hidden">
                     <div 
-                        className="bg-green-500 h-full relative flex justify-center items-center"
+                        className="bg-green-500 h-full relative flex justify-end items-center"
                         style={{ width: `${likePercentage}%` }}                        
                     >
-                        <span className="text-white font-bold">{Math.round(likePercentage)}%</span>
+                        <span className="text-white font-bold px-4 ">{Math.round(likePercentage)}%</span>
+                        <HandThumbUpIcon className="h-12 w-8 mr-4"/>
                     </div>
                     <div 
-                        className="absolute top-0 right-0 bg-transparent h-full flex justify-center items-center"
+                        className="absolute top-0 right-0 bg-transparent h-full flex justify-start px-4 items-center"
                         style={{ width: `${dislikePercentage}%`, left: `${likePercentage}%` }}
                     >
-                        <span className="text-white font-bold">{Math.round(dislikePercentage)}%</span>
+                        <span className="text-white font-bold px-4">{Math.round(dislikePercentage)}%</span>
+                        <HandThumbDownIcon className="h-12 w-8"/>
                     </div>
                 </div>
             </div>
